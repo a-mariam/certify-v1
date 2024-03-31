@@ -11,15 +11,13 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Certificate {
+public class Post {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String userId;
-    private String universityId;
-    private String name;
-    private String description;
-    
+    private String userName;
+//    private boolean
 }
