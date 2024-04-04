@@ -19,7 +19,8 @@ public class Certificate {
     private String id;
     private String userId;
     private String universityId;
-    private String name;
+    private String title;
     private String description;
+//    private
     
 }
