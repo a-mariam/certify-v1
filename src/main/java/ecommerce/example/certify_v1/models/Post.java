@@ -19,5 +19,8 @@ public class Post {
     private String id;
     private String userId;
     private String userName;
-//    private boolean
+    private boolean isVerified;
+    private String description;
+    private String title;
+
 }
