@@ -23,5 +23,7 @@ public class School {
     private Category category;
     @Enumerated(EnumType.STRING)
     private Type type;
+    private Authority authority;
+
 
 }

@@ -19,6 +19,8 @@ public class Student {
     private String email;
     private String phoneNumber;
     private String nin;
+    private Authority authority;
+
 
 
 }
