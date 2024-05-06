@@ -15,7 +15,6 @@ public class School {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;
-    private String k;
     private String schoolNumber;
     private String email;
     private String CEEB;
