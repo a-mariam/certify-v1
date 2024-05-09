@@ -1,15 +1,19 @@
 package ecommerce.example.certify_v1.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Setter
 @Getter
 @Builder
+@Entity(name = "student")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
 
     @Id
@@ -19,7 +23,7 @@ public class Student {
     private String email;
     private String phoneNumber;
     private String nin;
-    private Authority authority;
+    private List<Authority> authorities;
 
 
 

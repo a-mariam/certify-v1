@@ -1,14 +1,16 @@
 package ecommerce.example.certify_v1.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Builder
 @Setter
 @Getter
-@Entity
+@Entity(name = "school")
+@AllArgsConstructor
+@NoArgsConstructor
 public class School {
 
     @Id
@@ -23,7 +25,7 @@ public class School {
     private Category category;
     @Enumerated(EnumType.STRING)
     private Type type;
-    private Authority authority;
+    private List<Authority> authorities;
 
 
 }
