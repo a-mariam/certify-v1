@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.http.HttpRequest;
 
 @AllArgsConstructor
@@ -32,6 +33,13 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
         ModelMapper mapper = new ModelMapper();
+
+        try {
+            InputStream inputStream = request.getInputStream();
+//            LoginRe
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 

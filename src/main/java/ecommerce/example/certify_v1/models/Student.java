@@ -19,7 +19,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String username;
+    private String name;
     private String email;
     private String phoneNumber;
     private String nin;
