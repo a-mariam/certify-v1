@@ -14,16 +14,16 @@ import java.util.List;
 @Entity(name = "student")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+public class Student  extends User{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-    private String name;
-    private String email;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private String id;
+//    private String name;
+//    private String email;
     private String phoneNumber;
     private String nin;
-    private List<Authority> authorities;
+//    private List<Authority> authorities;
 
 
 

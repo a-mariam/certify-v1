@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import ecommerce.example.certify_v1.models.Authority;
 import ecommerce.example.certify_v1.models.School;
 import ecommerce.example.certify_v1.models.Student;
+import ecommerce.example.certify_v1.models.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.time.Instant;
@@ -27,8 +28,8 @@ public class JwtService {
 
 
 
-    public String generateTokenForStudent(Student student){
-          List<String> authorities = student.getAuthorities()
+    public String generateTokenForUser(User user){
+          List<String> authorities = user.getAuthorities()
                   .stream()
                   .map(Authority:: name)
                   .collect(Collectors.toList());
@@ -36,7 +37,7 @@ public class JwtService {
                   .withIssuedAt(Instant.now())
                   .withExpiresAt(Instant.now().plus(86400L, ChronoUnit.SECONDS))
                   .withIssuer("certify")
-                  .withSubject(student.getEmail())
+                  .withSubject(user.getEmail())
                   .withClaim("claims",authorities)
                   .sign(Algorithm.HMAC256("secret"));
 
@@ -46,26 +47,26 @@ public class JwtService {
     }
 
 
-    public String generateTokenForSchool(School  school){
-
-        List<String> authorities = school.getAuthorities()
-                .stream()
-                .map(Authority:: name)
-                .collect(Collectors.toList());
-        String token = JWT.create()
-                .withIssuedAt(Instant.now())
-                .withExpiresAt(Instant.now().plus(86400L, ChronoUnit.SECONDS))
-                .withIssuer("certify")
-                .withSubject(school.getEmail())
-                .withClaim("claims", authorities)
-                .sign(Algorithm.HMAC256("secret"));
-
-        log.info("generated token for school: ", token);
-
-        return token;
-
-
-    }
+//    public String generateTokenForSchool(School  school){
+//
+//        List<String> authorities = school.getAuthorities()
+//                .stream()
+//                .map(Authority:: name)
+//                .collect(Collectors.toList());
+//        String token = JWT.create()
+//                .withIssuedAt(Instant.now())
+//                .withExpiresAt(Instant.now().plus(86400L, ChronoUnit.SECONDS))
+//                .withIssuer("certify")
+//                .withSubject(school.getEmail())
+//                .withClaim("claims", authorities)
+//                .sign(Algorithm.HMAC256("secret"));
+//
+//        log.info("generated token for school: ", token);
+//
+//        return token;
+//
+//
+//    }
 
 
     public String extractUsernameFromToken(String token ) {

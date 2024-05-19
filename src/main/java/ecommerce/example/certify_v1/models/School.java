@@ -11,21 +11,21 @@ import java.util.List;
 @Entity(name = "school")
 @AllArgsConstructor
 @NoArgsConstructor
-public class School {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-    private String name;
+public class School extends User {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private String id;
+//    private String name;
     private String schoolNumber;
-    private String email;
+//    private String email;
     private String CEEB;
-    private String password;
+//    private String password;
     @Enumerated(EnumType.STRING)
     private Category category;
     @Enumerated(EnumType.STRING)
     private Type type;
-    private List<Authority> authorities;
+//    private List<Authority> authorities;
 
 
 }
