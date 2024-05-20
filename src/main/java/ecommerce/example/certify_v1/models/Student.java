@@ -10,7 +10,7 @@ import java.util.List;
 
 @Setter
 @Getter
-@Builder
+
 @Entity(name = "student")
 @AllArgsConstructor
 @NoArgsConstructor

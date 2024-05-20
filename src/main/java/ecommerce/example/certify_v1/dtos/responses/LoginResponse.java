@@ -1,6 +1,8 @@
 package ecommerce.example.certify_v1.dtos.responses;
 
+import java.util.List;
 
+import ecommerce.example.certify_v1.models.Authority;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +11,6 @@ import lombok.Setter;
 public class LoginResponse {
 
     private String id;
-    private String authority;
+    private List<Authority> authority;
     private String token;
 }

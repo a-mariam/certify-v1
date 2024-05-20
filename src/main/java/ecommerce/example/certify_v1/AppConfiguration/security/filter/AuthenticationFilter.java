@@ -71,7 +71,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                           Authentication authResult
                                            ) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        User user = userRepository.getBy(authResult.getName());
+        User user = userRepository.getByName(authResult.getName());
 
         if (user == null){
             try {
@@ -83,10 +83,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = jwt.generateTokenForUser(user);
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(token);
+        loginResponse.setId(user.getId());
+        loginResponse.setAuthority(user.getAuthorities());
         response.setContentType(APPLICATION_JSON_VALUE);
         mapper.writeValue(response.getOutputStream(), loginResponse);
-
-
 
 
     }
