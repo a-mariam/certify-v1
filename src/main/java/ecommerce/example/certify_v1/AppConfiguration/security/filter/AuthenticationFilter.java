@@ -35,9 +35,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 
-    private AuthenticationManager authenticationManager;
-    private UserRepository userRepository;
-    private JwtService jwt;
+    private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final JwtService jwt;
 
     private UserDetailsService userDetailsService;
 
