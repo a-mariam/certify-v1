@@ -11,6 +11,7 @@ public class CertifySignUpService implements SignUpService {
 
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) throws UserAlreadyExist {
+
         return null;
     }
 }
