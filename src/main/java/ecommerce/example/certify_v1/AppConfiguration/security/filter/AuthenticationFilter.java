@@ -80,7 +80,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 throw new RuntimeException(e);
             }
         }
-        String token = jwt.generateTokenForUser(user);
+//        String token =
+        String token = "";
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(token);
         loginResponse.setId(user.getId());

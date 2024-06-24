@@ -28,7 +28,7 @@ public class JwtService {
 
 
 
-    public String generateTokenForUser(User user){
+    public String generateTokenForStudent(Student user){
           List<String> authorities = user.getAuthorities()
                   .stream()
                   .map(Authority:: name)
@@ -40,33 +40,31 @@ public class JwtService {
                   .withSubject(user.getEmail())
                   .withClaim("claims",authorities)
                   .sign(Algorithm.HMAC256("secret"));
-
-
           log.info("created token for student: ", token);
         return token;
     }
 
 
-//    public String generateTokenForSchool(School  school){
-//
-//        List<String> authorities = school.getAuthorities()
-//                .stream()
-//                .map(Authority:: name)
-//                .collect(Collectors.toList());
-//        String token = JWT.create()
-//                .withIssuedAt(Instant.now())
-//                .withExpiresAt(Instant.now().plus(86400L, ChronoUnit.SECONDS))
-//                .withIssuer("certify")
-//                .withSubject(school.getEmail())
-//                .withClaim("claims", authorities)
-//                .sign(Algorithm.HMAC256("secret"));
-//
-//        log.info("generated token for school: ", token);
-//
-//        return token;
-//
-//
-//    }
+    public String generateTokenForSchool(School  school){
+
+        List<String> authorities = school.getAuthorities()
+                .stream()
+                .map(Authority:: name)
+                .collect(Collectors.toList());
+        String token = JWT.create()
+                .withIssuedAt(Instant.now())
+                .withExpiresAt(Instant.now().plus(86400L, ChronoUnit.SECONDS))
+                .withIssuer("certify")
+                .withSubject(school.getEmail())
+                .withClaim("claims", authorities)
+                .sign(Algorithm.HMAC256("secret"));
+
+        log.info("generated token for school: ", token);
+
+        return token;
+
+
+    }
 
 
     public String extractUsernameFromToken(String token ) {

@@ -14,7 +14,7 @@ import java.util.List;
 @Entity(name = "student")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student  extends User{
+public class Student  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

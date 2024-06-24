@@ -30,7 +30,7 @@ public class CertifySignUpService implements SignUpService {
         String encodedPassword = passwordEncoder.encode(request.getPassword());
         Student student = mapper.mapper(request, encodedPassword);
         Student savedStudent =  studentRepository.save(student);
-        String token = jwt.generateTokenForUser(savedStudent);
+        String token = jwt.generateTokenForStudent(savedStudent);
         return mapper.mapper(token, savedStudent.getId(), "student created successfully");
     }
 }

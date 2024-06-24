@@ -24,12 +24,13 @@ public class SignUpServiceTest {
         userRequest.setNin("283938793723");
         userRequest.setFirstName("Habibi");
         userRequest.setLastName("Muni");
+        userRequest.setPhoneNumber("09072783837");
         CreateUserResponse response = signUpService.createStudent(userRequest);
         assertNotNull(response.getMessage());
         assertNotNull(response.getToken());
 
-
     }
+
 
 
 
